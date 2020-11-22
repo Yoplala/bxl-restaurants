@@ -1,0 +1,66 @@
+
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Les meilleurs restaurants de Bruxelles</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+			  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+			  crossorigin="">
+		<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+		      integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+			  crossorigin="">
+		<link rel="stylesheet" href="style.css">
+	</head>
+  
+	<body>
+		<main>
+			<div id="map"></div> 					<!-- Carte -->
+			<div id="lateral"> 						<!-- Barre latérale -->
+				<div id="lateral_head">
+					<h1>Les meilleurs restaurants de Bruxelles</h1>
+					<div id="filter_stars">			<!-- Filtres -->
+						<input type="checkbox" id="stars_5" class="checkbox" value="5" onclick="filterDisplay(5)" checked><label for="stars_5"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
+						<input type="checkbox" id="stars_4" class="checkbox" value="4" onclick="filterDisplay(4)" checked><label for="stars_4"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
+						<input type="checkbox" id="stars_3" class="checkbox" value="3" onclick="filterDisplay(3)" checked><label for="stars_3"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
+						<input type="checkbox" id="stars_2" class="checkbox" value="2" onclick="filterDisplay(2)" checked><label for="stars_2"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
+						<input type="checkbox" id="stars_1" class="checkbox" value="1" onclick="filterDisplay(1)" checked><label for="stars_1"><span class='fa fa-star checked'></span></label>
+					</div>
+					<div>							<!-- Affichage des restaurants de Google Places -->
+						<button id="button_add_places" type="button" onclick="addPlaces()">Restaurants de Google Places</button>
+						<div id="filters_google_places"><input type="checkbox" id="places_filter" class="checkbox" value="6" onclick="filterDisplay('places')" checked><label for="places_filter">Google Places</label></div>
+					</div>
+				</div>
+				<div id="listes">					<!-- Listes des restaurants -->
+					<ul id="liste"></ul>
+					<ul id="liste2"></ul>
+				</div>
+				<div id="buffer"></div>				<!-- div tampon pour l'alignement de la suicante -->
+				<div id="logs"></div>				<!-- Signalement de la géolocalisation - Débogage -->
+			</div>
+			<div id="notifications">				<!-- Notifications -->
+				<div id="notifs_content"></div>		
+			</div>
+			
+		
+		</main>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+				integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+				crossorigin=""></script>
+		<script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+				integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+				crossorigin=""></script>
+		<script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+				integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+				crossorigin=""></script>
+		<script defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbtQIP1bM9MqndGb8nhnUvwxDwnNAaisE&libraries=places&callback"></script>
+		<script src="map.js"></script>					<!-- Initialisation de la carte -->
+		<script src="restaurant.js"></script>			<!-- Classe Restaurant et récupération des données -->
+		<script src="display.js"></script>				<!-- Fonction d'affichage + filtres -->
+		<script src="forms.js"></script>				<!-- Formulaires pour ajouter un commentaire ou un restaurant -->
+	</body>
+</html>
+

@@ -1,0 +1,288 @@
+
+
+/* ---=== Réglages généraux ===--- */
+
+:root {
+	--main-color: rgba(59,140,207,1);			/*var(--main-color)*/
+	--main-opacity: rgba(59,140,207,0.9);		/*var(--main-opacity)*/
+	--accent-color: rgba(218,165,28,1);			/*var(--accent-color)*/
+	--dark-color: rgba(16,39,5,1);				/*var(--dark-color)*/
+	--light-color: rgba(234,243,250,1);			/*var(--light-color)*/
+}
+
+body {
+	margin: 0;
+	color: var(--dark-color);
+}
+
+main {
+	width: 100vw;
+	height: 100vh;
+	
+	display: grid;
+	grid-template-columns: 5% 15% 55% 20% 5%;
+	grid-template-rows: 5% 75% 15% 5%;
+	grid-template-areas: 
+		".		. 	 	.	. 		."
+		".		.	  	.	lateral	."
+		"notifs	notifs	.	lateral	."
+		".		.		.	.		.";
+}
+
+	@media (max-width: 991px) {
+		main {
+			grid-template-columns: 5% 15% 45% 30% 5%;
+			grid-template-rows: 5% 75% 15% 5%;
+			grid-template-areas: 
+				".		. 	 	.	. 		."
+				".		.	  	.	lateral	."
+				"notifs	notifs	.	lateral	."
+				".		.		.	.		.";
+		}
+	}
+	
+	@media (max-width: 767px) {
+		main {
+			grid-template-columns: 5% 90% 5%;
+			grid-template-rows: 60% 38% 2%;
+			grid-template-areas: 
+				".		. 	 	."
+				".		lateral	."
+				".		. 	 	.";
+		}
+	}
+
+#map {
+	grid-column: 1 / -1;
+	grid-row: 1 / -1;
+}
+
+button {
+	color: var(--light-color);
+	font-weight: bold;
+	background-color: var(--accent-color);
+	border: 0px var(--accent-color) solid;
+	border-radius: 30px;
+	padding: 3%;
+	cursor: pointer;
+	transform: scale(1);
+    transition: transform 400ms;
+	box-shadow: 1px 1px 1px var(--light-color);
+}
+
+	button:hover {
+		transform: scale(1.15);
+		box-shadow: 0px 0px 0px var(--light-color);
+	} 
+	
+	button:focus {
+		outline:0;
+	}
+
+#lateral #liste strong, input[type=checkbox], label, .rating_perso {
+	cursor: pointer;
+}
+
+
+/* ---=== Réglages de la barre latérale ===--- */
+
+#lateral {
+	background-color: var(--main-opacity);
+	border-radius: 30px;
+	grid-area: lateral;
+	z-index: 1000;					/* Why ? 100 pas assez.. */
+	padding: 5%;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 5px 5px 5px var(--dark-color);
+}
+
+#lateral_head {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-height: 30vh;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#filter_stars {
+	margin-bottom: 3%;
+}
+
+#filter_stars label, #stars_average {
+	display: inline-block;
+}
+
+#filters_google_places {			/* Filtre pour Google Place pas visible par défaut */
+	display: none;
+}
+
+#filters_google_places label {
+	color: var(--accent-color);
+	font-weight: bold;
+}
+
+.checked {
+  color: var(--accent-color);
+}
+
+#liste {
+	max-height: 55vh;
+	padding: 0px 15px;
+	overflow: auto;
+	scrollbar-color: var(--accent-color) var(--main-color);
+	scrollbar-width: thin;
+}
+
+#liste::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: var(--main-color); 
+}
+
+#liste::-webkit-scrollbar-thumb {
+    background: var(--accent-color); 
+}
+
+	
+}
+
+#liste li {
+	margin: 2%;
+}
+
+#buffer {
+	flex: auto;
+}
+
+#logs {
+	color: var(--accent-color);
+	text-align: center;
+	max-height: 5vh;
+}
+
+
+/* ---=== Réglages des pop-ups ===--- */
+
+.leaflet-popup-content-wrapper {
+	width: 300px;
+	border-radius: 30px;
+	background-color: var(--main-opacity);
+	box-shadow: 5px 5px 5px var(--dark-color);
+}
+
+.leaflet-popup-tip {
+	background-color: var(--main-opacity);
+}
+
+
+.leaflet-popup-content {
+	margin: 5%;
+	color: var(--dark-color);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+	padding-top: 10px;
+	padding-right: 10px;
+	color: var(--accent-color);
+	transform: scale(1);
+    transition: transform 400ms;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+	color: var(--accent-color);
+	transform: scale(1.15);
+}
+
+h4 {
+	text-align: center;
+	margin-bottom: 1%;
+	font-size: 1.5em;
+}
+
+.leaflet-popup-content p {
+	text-align: center;
+	margin: 1%;
+}
+
+.leaflet-popup-content ul {
+	max-height: 100px;
+	padding: 0px 10px;
+	overflow: auto;
+	scrollbar-color: var(--accent-color) var(--main-color);
+	scrollbar-width: thin;
+}
+
+.leaflet-popup-content ul::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: var(--main-color); 
+}
+
+.leaflet-popup-content ul::-webkit-scrollbar-thumb {
+    background: var(--accent-color); 
+}
+   
+.button_add {
+	text-align: center;
+}
+
+#formComment {						/* Formulaire d'ajout de commentaire pas visible par défaut */
+	display: none;
+}
+
+#button_send {
+	margin-left: 5%;
+}
+
+#form2 {
+	/* padding: 2%; */
+	text-align: left;
+}
+
+
+/* ---=== Réglages des notifications ===--- */
+
+#notifications {
+	background-color: var(--main-opacity);
+	border-radius: 0px 30px 30px 0px;
+	grid-area: notifs;
+	z-index: 1000;					/* Why ? 100 pas assez.. */
+	color: var(--dark-color);
+	text-align: center;
+	font-weight: bold;
+	transform: translateX(-500px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 5px 5px 5px var(--dark-color);
+}
+
+.notifications_animated {
+	animation-name: displaynotifs;
+	animation-duration: 4000ms;
+	animation-timing-function: ease-in-out;
+}
+
+	@keyframes displaynotifs {
+		0% {
+			transform: translateX(-500px);
+		}
+		20% {
+			transform: translateX(0);
+			padding: 5%;
+		}
+		
+		80% {
+			transform: translateX(0);
+			padding: 5%;
+		}
+		
+		100% {
+			transform: translateX(-500px);
+		}
+	}
+
