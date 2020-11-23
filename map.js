@@ -36,7 +36,9 @@ function geo_success(position) {
 		let today = new Date();
 		let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 		document.getElementById('logs').innerHTML = "Dernier calcul de la localisation : " +time;
-	}	
+	} else {
+		geo_error()
+	}
 }
 
 function geo_error() {
