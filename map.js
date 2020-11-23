@@ -19,7 +19,7 @@ let circle = L.circle([0, 0], {
 
 // Fonction de géolocalisation
 function geo_success(position) {
-	// Si la géolocalisation de l'utilisateur est hors de Bruxelles
+	//Si la géolocalisation de l'utilisateur est hors de Bruxelles
 	if (position.coords.latitude > 50.931 || position.coords.latitude < 50.7712 || position.coords.longitude > 4.5068 || position.coords.longitude < 4.2661) {
 		// displayNotifs("Cette application fonctionne pour la ville de Bruxelles.<br><br> Il semblerait que vous êtes hors de la zone concernée.<br><br> L'application a centré la carte sur la Grand-Place de la ville.");
 		// circle.setLatLng([50.8467, 4.3524]);
@@ -29,16 +29,16 @@ function geo_success(position) {
 	} else {
 		
 	// Si la géolocalisation de l'utilisateur est bien à Bruxelles
-	if (position.coords.latitude < 50.931 || position.coords.latitude > 50.7712 || position.coords.longitude < 4.5068 || position.coords.longitude > 4.2661) {
+	// if (position.coords.latitude < 50.931 || position.coords.latitude > 50.7712 || position.coords.longitude < 4.5068 || position.coords.longitude > 4.2661) {
 		circle.setLatLng([position.coords.latitude, position.coords.longitude]);
 		mymap.setView([position.coords.latitude, position.coords.longitude + 0.01], 15);
 		// Affichage de l'heure pour montrer que l'application recalcule bien la position
 		let today = new Date();
 		let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 		document.getElementById('logs').innerHTML = "Dernier calcul de la localisation : " +time;
-	} //else {
-		//geo_error()
-	//}
+	}	//else {
+		// geo_error()
+	// }
 }
 
 function geo_error() {
