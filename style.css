@@ -83,6 +83,9 @@ button {
 	cursor: pointer;
 }
 
+.required {
+  border: 2px solid red;
+}
 
 /* ---=== Réglages de la barre latérale ===--- */
 
@@ -114,7 +117,7 @@ h1 {
 	margin-bottom: 3%;
 }
 
-#filter_stars label, #stars_average {
+#filter_stars label, #stars_average, #filter_span {
 	display: inline-block;
 }
 
@@ -148,13 +151,6 @@ h1 {
     background: var(--accent-color); 
 }
 
-	
-}
-
-#liste li {
-	margin: 2%;
-}
-
 #buffer {
 	flex: auto;
 }
@@ -177,6 +173,7 @@ h1 {
 
 .leaflet-popup-tip {
 	background-color: var(--main-opacity);
+	box-shadow: 5px 5px 5px var(--dark-color);
 }
 
 

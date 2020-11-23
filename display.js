@@ -20,7 +20,7 @@ function display() {
 			// Ajoute chaque restaurant dans la liste
 			let liste = document.getElementById('liste');
 			let newElem = document.createElement("li");
-			newElem.innerHTML += '<strong>' + rest.name + '</strong><br>' + 'Moyenne des ' + rest.totalReviews + ' avis : <span id="stars_average">' + rest.addFafastar() + '</span>';
+			newElem.innerHTML += '<span id="liste_elem"><strong>' + rest.name + '</strong><br><span id="stars_average">' + rest.addFafastar() + '</span> -  ' + rest.totalReviews + ' avis</span>';
 			liste.appendChild(newElem); 
 		
 			// Ajoute un marqueur de carte pour chaque restaurant avec un pop-up associé

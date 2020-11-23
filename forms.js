@@ -32,33 +32,37 @@ function addReview() {
 // Fonction pour enregistrer le commentaire
 function sendComment() {
 	
-	// Récupérer le restaurant concerné
-	let relatedName = document.querySelector("h4").textContent;
-	let relatedRest = restaurantsArray.filter(elem => elem.name === relatedName);
+	// Validation du formulaire
+	if (document.getElementById("comment_perso").value === "") {
+		document.getElementById("comment_perso").classList.add("required");
+	} else {
+		// Récupérer le restaurant concerné
+		let relatedName = document.querySelector("h4").textContent;
+		let relatedRest = restaurantsArray.filter(elem => elem.name === relatedName);
 	
-	// Ajouter cet avis aux avis du restaurant
-	let newComment = document.getElementById('comment_perso').value;
-	let newObject = {stars: Number(newStar), comment: newComment};
-	//let newRating = restaurantsArray[0].ratings.push(newObject);
-	relatedRest[0].reviews.unshift(newObject);
+		// Ajouter cet avis aux avis du restaurant
+		let newComment = document.getElementById('comment_perso').value;
+		let newObject = {stars: Number(newStar), comment: newComment};
+		relatedRest[0].reviews.unshift(newObject);
 	
-	// Rafraîchir la moyenne de ce restaurant
-	if (relatedRest[0].origin === "originPlaces") {  // Parce qu'on n'a pas toutes les notations avec Google Places
-		let sumRatings = (relatedRest[0].average * relatedRest[0].totalReviews) + Number(newStar);
-		let roundedAverage = (sumRatings / (relatedRest[0].totalReviews + 1)).toFixed(0);
-		relatedRest[0].average = Number(roundedAverage);
-	} else {	
-		let sumRatings = relatedRest[0].reviews.reduce((a, b) => a + b.stars, 0);
-		let roundedAverage = (sumRatings / relatedRest[0].reviews.length).toFixed(0);
-		relatedRest[0].average = Number(roundedAverage);
-	}
+		// Rafraîchir la moyenne de ce restaurant
+		if (relatedRest[0].origin === "originPlaces") {  // Parce qu'on n'a pas toutes les notations avec Google Places
+			let sumRatings = (relatedRest[0].average * relatedRest[0].totalReviews) + Number(newStar);
+			let roundedAverage = (sumRatings / (relatedRest[0].totalReviews + 1)).toFixed(0);
+			relatedRest[0].average = Number(roundedAverage);
+		} else {	
+			let sumRatings = relatedRest[0].reviews.reduce((a, b) => a + b.stars, 0);
+			let roundedAverage = (sumRatings / relatedRest[0].reviews.length).toFixed(0);
+			relatedRest[0].average = Number(roundedAverage);
+		}
 
-	relatedRest[0].totalReviews ++;
+		relatedRest[0].totalReviews ++;
 	
-	// Relancer l'affichage en ouvrant le pop-up du restaurant modifié
-	display();
-	relatedRest[0].marker.openPopup();
-	displayNotifs("Votre commentaire a été ajouté avec succès !");
+		// Relancer l'affichage en ouvrant le pop-up du restaurant modifié
+		display();
+		relatedRest[0].marker.openPopup();
+		displayNotifs("Votre commentaire a été ajouté avec succès !");	
+	}
 }
 
 
@@ -89,26 +93,32 @@ function addRest() {
         return;
       }
 		newAdress = result.address.Match_addr;
-		popup.setContent('<p id="form2"><strong>Nom du restaurant :</strong><br><input type="text" id="new_rest" name="new_restaurant" required><br><br><strong>Adresse :</strong> '+ newAdress +'<br><br><strong>Votre commentaire :</strong><br><span class="fa fa-star rating_perso" stars="1" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="2" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="3" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="4" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="5" onclick="addRating()"></span><br><input type="text" id="comment_new_rest" name="comment_added" required><button id="button_send" type="button" onclick="sendRest()">Envoyer</button></p>');	
+		popup.setContent('<p id="form2"><strong>Nom du restaurant :</strong><br><input type="text" id="new_rest" name="new_restaurant" required autofocus><br><br><strong>Adresse :</strong> '+ newAdress +'<br><br><strong>Votre commentaire :</strong><br><span class="fa fa-star rating_perso" stars="1" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="2" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="3" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="4" onclick="addRating()"></span><span class="fa fa-star rating_perso" stars="5" onclick="addRating()"></span><br><input type="text" id="comment_new_rest" name="comment_added" required><button id="button_send" type="button" onclick="sendRest()">Envoyer</button></p>');	
     });
 }
 
 // Fonction pour enregistrer le nouveau restaurant
 function sendRest() {
 	
-	// Création d'un tableau pour le commentaire
-	let newArray = [{stars: Number(newStar), comment: document.getElementById('comment_new_rest').value}];
-	
-	// Création d'un nouveau restaurant
-	let newRest = new Restaurant(document.getElementById("new_rest").value, coordonates.lat, coordonates.lng, newAdress, newArray, 1, "originAdded", Number(newStar));
-	
-	// Ajout de ce restaurant au tableau global
-	restaurantsArray.push(newRest);
-	
-	// Relancer l'affichage en ouvrant le pop-up du restaurant ajouté
-	display();
-	newRest.marker.openPopup();
-	displayNotifs("Le nouveau restaurant a été ajouté avec succès !");
+	// Validation du formulaire
+	if (document.getElementById("new_rest").value === "" || document.getElementById("comment_new_rest").value === "") {
+		document.getElementById("new_rest").classList.add("required");
+		document.getElementById("comment_new_rest").classList.add("required");
+	} else {
+		// Création d'un tableau pour le commentaire
+		let newArray = [{stars: Number(newStar), comment: document.getElementById('comment_new_rest').value}];
+		
+		// Création d'un nouveau restaurant
+		let newRest = new Restaurant(document.getElementById("new_rest").value, coordonates.lat, coordonates.lng, newAdress, newArray, 1, "originAdded", Number(newStar));
+		
+		// Ajout de ce restaurant au tableau global
+		restaurantsArray.push(newRest);
+		
+		// Relancer l'affichage en ouvrant le pop-up du restaurant ajouté
+		display();
+		newRest.marker.openPopup();
+		displayNotifs("Le nouveau restaurant a été ajouté avec succès !");
+	}
 }
 
 

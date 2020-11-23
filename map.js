@@ -20,12 +20,16 @@ let circle = L.circle([0, 0], {
 // Fonction de géolocalisation
 function geo_success(position) {
 	// Si la géolocalisation de l'utilisateur est hors de Bruxelles
-	if (position.coords.latitude > 50.931 || position.coords.latitude < 50.7712 || position.coords.longitude > 4.5068 || position.coords.longitude < 4.2661) {
-		displayNotifs("Cette application fonctionne pour la ville de Bruxelles.<br><br> Il semblerait que vous êtes hors de la zone concernée.<br><br> L'application a centré la carte sur la Grand-Place de la ville.");
-		circle.setLatLng([50.8467, 4.3524]);
-		mymap.setView([50.8467, 4.3524 + 0.01], 15);
+	// if (position.coords.latitude > 50.931 || position.coords.latitude < 50.7712 || position.coords.longitude > 4.5068 || position.coords.longitude < 4.2661) {
+		// displayNotifs("Cette application fonctionne pour la ville de Bruxelles.<br><br> Il semblerait que vous êtes hors de la zone concernée.<br><br> L'application a centré la carte sur la Grand-Place de la ville.");
+		// circle.setLatLng([50.8467, 4.3524]);
+		// mymap.setView([50.8467, 4.3524 + 0.01], 15);
+		// geo_error();
+	
+	// } else {
+		
 	// Si la géolocalisation de l'utilisateur est bien à Bruxelles
-	} else {
+	if (position.coords.latitude < 50.931 || position.coords.latitude > 50.7712 || position.coords.longitude < 4.5068 || position.coords.longitude > 4.2661) {
 		circle.setLatLng([position.coords.latitude, position.coords.longitude]);
 		mymap.setView([position.coords.latitude, position.coords.longitude + 0.01], 15);
 		// Affichage de l'heure pour montrer que l'application recalcule bien la position
@@ -36,7 +40,8 @@ function geo_success(position) {
 }
 
 function geo_error() {
-	displayNotifs("Désolé, votre géolocalisation n'est pas disponible.<br><br> L'application a centré la carte sur la Grand-Place de la ville.");
+	// displayNotifs("Désolé, votre géolocalisation n'est pas disponible.<br><br> L'application a centré la carte sur la Grand-Place de la ville.");
+	displayNotifs("Votre géolocalisation n'est pas disponible pour la ville de Bruxelles.<br><br> L'application a centré la carte sur la Grand-Place de la ville.");
 	circle.setLatLng([50.8467, 4.3524]);
 	mymap.setView([50.8467, 4.3524 + 0.01], 15);
 }

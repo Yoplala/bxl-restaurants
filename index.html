@@ -22,11 +22,11 @@
 				<div id="lateral_head">
 					<h1>Les meilleurs restaurants de Bruxelles</h1>
 					<div id="filter_stars">			<!-- Filtres -->
-						<input type="checkbox" id="stars_5" class="checkbox" value="5" onclick="filterDisplay(5)" checked><label for="stars_5"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
-						<input type="checkbox" id="stars_4" class="checkbox" value="4" onclick="filterDisplay(4)" checked><label for="stars_4"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
-						<input type="checkbox" id="stars_3" class="checkbox" value="3" onclick="filterDisplay(3)" checked><label for="stars_3"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
-						<input type="checkbox" id="stars_2" class="checkbox" value="2" onclick="filterDisplay(2)" checked><label for="stars_2"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label>
-						<input type="checkbox" id="stars_1" class="checkbox" value="1" onclick="filterDisplay(1)" checked><label for="stars_1"><span class='fa fa-star checked'></span></label>
+						<span id="filter_span"></span><input type="checkbox" id="stars_5" class="checkbox" value="5" onclick="filterDisplay(5)" checked><label for="stars_5"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label></span>
+						<span id="filter_span"><input type="checkbox" id="stars_4" class="checkbox" value="4" onclick="filterDisplay(4)" checked><label for="stars_4"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label></span>
+						<span id="filter_span"><input type="checkbox" id="stars_3" class="checkbox" value="3" onclick="filterDisplay(3)" checked><label for="stars_3"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label></span>
+						<span id="filter_span"><input type="checkbox" id="stars_2" class="checkbox" value="2" onclick="filterDisplay(2)" checked><label for="stars_2"><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></label></span>
+						<span id="filter_span"><input type="checkbox" id="stars_1" class="checkbox" value="1" onclick="filterDisplay(1)" checked><label for="stars_1"><span class='fa fa-star checked'></span></label></span>
 					</div>
 					<div>							<!-- Affichage des restaurants de Google Places -->
 						<button id="button_add_places" type="button" onclick="addPlaces()">Restaurants de Google Places</button>
