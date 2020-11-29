@@ -104,7 +104,7 @@ function addPlaces() {
 	// Cacher le bouton d'ajout, afficher celui pour les retirer
 	document.getElementById("button_add_places").style.display = "none";
 	document.getElementById("filters_google_places").style.display = "block";
-}
+
 
 function callback(results, status) {
 	if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -144,5 +144,6 @@ function callback(results, status) {
 		// Lancer l'affichage
 		display();
 	}
+}
 }
 
