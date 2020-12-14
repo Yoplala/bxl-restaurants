@@ -29,15 +29,14 @@
 						<span id="filter_span"><input type="checkbox" id="stars_1" class="checkbox" value="1" onclick="filterDisplay(1)" checked><label for="stars_1"><span class='fa fa-star checked'></span></label></span>
 					</div>
 					<div>							<!-- Affichage des restaurants de Google Places -->
-						<button id="button_add_places" type="button" onclick="addPlaces()">Restaurants de Google Places</button>
-						<div id="filters_google_places"><input type="checkbox" id="places_filter" class="checkbox" value="6" onclick="filterDisplay('places')" checked><label for="places_filter">Google Places</label></div>
+						<button id="button_add_places" type="button" onclick="places()">Restaurants de Google Places</button>
 					</div>
 				</div>
 				<div id="listes">					<!-- Listes des restaurants -->
 					<ul id="liste"></ul>
 					<ul id="liste2"></ul>
 				</div>
-				<div id="buffer"></div>				<!-- div tampon pour l'alignement de la suicante -->
+				<div id="buffer"></div>				<!-- div tampon pour l'alignement de la suivante -->
 				<div id="logs"></div>				<!-- Signalement de la géolocalisation - Débogage -->
 			</div>
 			<div id="notifications">				<!-- Notifications -->
@@ -46,15 +45,18 @@
 			
 		
 		</main>
-		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+		<!-- API Leaflet pour la carte -->
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 				integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 				crossorigin=""></script>
+		<!-- API Esri Leaflet pour retrouver une adresse -->
 		<script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
 				integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
 				crossorigin=""></script>
 		<script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
 				integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
 				crossorigin=""></script>
+		<!-- API Google Places -->
 		<script defer
 				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbtQIP1bM9MqndGb8nhnUvwxDwnNAaisE&libraries=places&callback"></script>
 		<script src="map.js"></script>					<!-- Initialisation de la carte -->

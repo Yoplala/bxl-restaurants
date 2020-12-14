@@ -93,7 +93,7 @@ button {
 	background-color: var(--main-opacity);
 	border-radius: 30px;
 	grid-area: lateral;
-	z-index: 1000;					/* Why ? 100 pas assez.. */
+	z-index: 1000;
 	padding: 5%;
 	display: flex;
 	flex-direction: column;
@@ -113,21 +113,13 @@ h1 {
 	font-size: 1.5em;
 }
 
-#filter_stars {
+#filter_stars {						/* Filtres cachés par défaut */
 	margin-bottom: 3%;
+	display: none;
 }
 
 #filter_stars label, #stars_average, #filter_span {
 	display: inline-block;
-}
-
-#filters_google_places {			/* Filtre pour Google Place pas visible par défaut */
-	display: none;
-}
-
-#filters_google_places label {
-	color: var(--accent-color);
-	font-weight: bold;
 }
 
 .checked {
@@ -227,7 +219,7 @@ h4 {
 	text-align: center;
 }
 
-#formComment {						/* Formulaire d'ajout de commentaire pas visible par défaut */
+#formComment {						/* Formulaire d'ajout de commentaire caché par défaut */
 	display: none;
 }
 
@@ -247,7 +239,7 @@ h4 {
 	background-color: var(--main-opacity);
 	border-radius: 0px 30px 30px 0px;
 	grid-area: notifs;
-	z-index: 1000;					/* Why ? 100 pas assez.. */
+	z-index: 1000;
 	color: var(--dark-color);
 	text-align: center;
 	font-weight: bold;

@@ -109,7 +109,7 @@ function sendRest() {
 		let newArray = [{stars: Number(newStar), comment: document.getElementById('comment_new_rest').value}];
 		
 		// Création d'un nouveau restaurant
-		let newRest = new Restaurant(document.getElementById("new_rest").value, coordonates.lat, coordonates.lng, newAdress, newArray, 1, "originAdded", Number(newStar));
+		let newRest = new Restaurant(document.getElementById("new_rest").value, coordonates.lat, coordonates.lng, newAdress, newArray, 1, "originAdded", Number(newStar), true);
 		
 		// Ajout de ce restaurant au tableau global
 		restaurantsArray.push(newRest);

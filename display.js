@@ -41,21 +41,12 @@ function display() {
 
 function filterDisplay(nb) {
 	
-	// Appliquer le filtre
-	if (nb === 'places') {										// Filtre pour les restaurants provenant de Google Places
-		restaurantsArray.forEach(restaurant => {														
-			if (restaurant.origin === "originPlaces") {
-				document.getElementById('places_filter').checked ? restaurant.display = true : restaurant.display = false;
-			}
-		});
-	} else {											// Filtre pour les restaurants selon leurs étoiles
-		restaurantsArray.forEach(restaurant => {														
-			if (restaurant.average === nb) {
-				document.getElementById('stars_' + nb).checked ? restaurant.display = true : restaurant.display = false;
-			}
-		});
-	}
-	
+	restaurantsArray.forEach(restaurant => {					
+		if (restaurant.average === nb) {
+			document.getElementById('stars_' + nb).checked ? restaurant.display = true : restaurant.display = false;
+		}
+	});
+
 	// Relancer l'affichage des restaurants
 	display();
 	displayNotifs("Filtre appliqué !");
