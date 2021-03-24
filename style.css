@@ -44,7 +44,7 @@ main {
 	@media all and (max-device-width: 480px) {
 		main {
 			grid-template-columns: 15% 80% 5%;
-			grid-template-rows: 60% 40%;
+			grid-template-rows: 55% 45%;
 			grid-template-areas: 
 				"notifs		 .	 	."
 				"lateral 	lateral 	lateral";
