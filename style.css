@@ -29,7 +29,7 @@ main {
 		".		.		.	.		.";
 }
 
-	@media (max-width: 991px) {
+	@media all and (max-device-width: 800px) {
 		main {
 			grid-template-columns: 5% 15% 45% 30% 5%;
 			grid-template-rows: 5% 75% 15% 5%;
@@ -40,17 +40,17 @@ main {
 				".		.		.	.		.";
 		}
 	}
-	
-	@media (max-width: 767px) {
+
+	@media all and (max-device-width: 480px) {
 		main {
 			grid-template-columns: 5% 90% 5%;
-			grid-template-rows: 60% 38% 2%;
+			grid-template-rows: 60% 40%;
 			grid-template-areas: 
-				".		. 	 	."
-				".		lateral	."
-				".		. 	 	.";
+				".		 .	 	 ."
+				"lateral lateral lateral";
 		}
 	}
+
 
 #map {
 	grid-column: 1 / -1;
@@ -77,6 +77,12 @@ button {
 	
 	button:focus {
 		outline:0;
+	}
+
+	@media all and (max-device-width: 480px) {
+		button {
+			font-size: 2rem;
+		}
 	}
 
 #lateral #liste strong, input[type=checkbox], label, .rating_perso {
@@ -112,6 +118,11 @@ h1 {
 	text-align: center;
 	font-size: 1.5em;
 }
+	@media all and (max-device-width: 480px) {
+		h1 {
+			font-size: 4rem;
+		}
+	}
 
 #filter_stars {						/* Filtres cachés par défaut */
 	margin-bottom: 3%;
@@ -143,6 +154,16 @@ h1 {
     background: var(--accent-color); 
 }
 
+	@media all and (max-device-width: 480px) {
+		#liste {
+			font-size: 2rem;
+		}
+
+		#listes {
+			overflow: scroll;
+		}
+	}
+
 #buffer {
 	flex: auto;
 }
@@ -173,6 +194,13 @@ h1 {
 	margin: 5%;
 	color: var(--dark-color);
 }
+
+	@media all and (max-device-width: 480px) {
+		.leaflet-popup-content {
+			overflow: scroll;
+			font-size: 2rem;
+		}
+	}
 
 .leaflet-container a.leaflet-popup-close-button {
 	padding-top: 10px;
@@ -274,4 +302,3 @@ h4 {
 			transform: translateX(-500px);
 		}
 	}
-
