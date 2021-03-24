@@ -21,4 +21,5 @@ Livrables : Code HTML/CSS/JS du projet
 
 
 ## Pistes d'amélioration
-- 
+- Adaptabilité
+- Possibilité de faire une recherche à partir d'une localisation décidée par l'utilisateur
