@@ -3,11 +3,11 @@
 /* ---=== Réglages généraux ===--- */
 
 :root {
-	--main-color: rgba(59,140,207,1);			/*var(--main-color)*/
+	--main-color: rgba(59,140,207,1);		/*var(--main-color)*/
 	--main-opacity: rgba(59,140,207,0.9);		/*var(--main-opacity)*/
-	--accent-color: rgba(218,165,28,1);			/*var(--accent-color)*/
-	--dark-color: rgba(16,39,5,1);				/*var(--dark-color)*/
-	--light-color: rgba(234,243,250,1);			/*var(--light-color)*/
+	--accent-color: rgba(218,165,28,1);		/*var(--accent-color)*/
+	--dark-color: rgba(16,39,5,1);			/*var(--dark-color)*/
+	--light-color: rgba(234,243,250,1);		/*var(--light-color)*/
 }
 
 body {
@@ -24,8 +24,8 @@ main {
 	grid-template-rows: 5% 75% 15% 5%;
 	grid-template-areas: 
 		".		. 	 	.	. 		."
-		".		.	  	.	lateral	."
-		"notifs	notifs	.	lateral	."
+		".		.	  	.	lateral		."
+		"notifs		notifs		.	lateral		."
 		".		.		.	.		.";
 }
 
@@ -35,19 +35,19 @@ main {
 			grid-template-rows: 5% 75% 15% 5%;
 			grid-template-areas: 
 				".		. 	 	.	. 		."
-				".		.	  	.	lateral	."
-				"notifs	notifs	.	lateral	."
+				".		.	  	.	lateral		."
+				"notifs		notifs		.	lateral		."
 				".		.		.	.		.";
 		}
 	}
 
 	@media all and (max-device-width: 480px) {
 		main {
-			grid-template-columns: 5% 90% 5%;
+			grid-template-columns: 15% 80% 5%;
 			grid-template-rows: 60% 40%;
 			grid-template-areas: 
-				".		 .	 	 ."
-				"lateral lateral lateral";
+				"notifs		 .	 	."
+				"lateral 	lateral 	lateral";
 		}
 	}
 
