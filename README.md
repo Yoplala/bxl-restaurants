@@ -3,7 +3,7 @@ Restaurant review site | Site d'avis de restaurants
 
 *L'API de Google Places peut ne plus fonctionner sur l'application.*
 
-https://yoplala.github.io/bxl-restaurants/
+[Les meilleurs restaurants de Bruxelles](https://yoplala.github.io/bxl-restaurants/)
 
 
 ## Contexte
