@@ -35,5 +35,5 @@ Livrables : Code HTML/CSS/JS du projet
 
 
 ## Pistes d'amélioration
-- Adaptabilité pas terminée pour mobile
+- Adaptabilité à terminer pour mobile
 - Possibilité de faire une recherche à partir d'une localisation décidée par l'utilisateur
